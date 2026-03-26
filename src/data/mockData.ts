@@ -1,4 +1,4 @@
-import { Account, Transaction, Property, Opportunity, SpendingCategory, UserProfile } from '../types';
+import type { Account, Transaction, Property, Opportunity, SpendingCategory, UserProfile } from '../types';
 
 export const mockUser: UserProfile = {
   name: 'Mason McMillan',

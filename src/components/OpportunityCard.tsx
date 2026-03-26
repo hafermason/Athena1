@@ -1,4 +1,4 @@
-import { Opportunity } from '../types';
+import type { Opportunity } from '../types';
 import { Sparkles, X, Check, ArrowRight, DollarSign, Shield, Receipt, PiggyBank } from 'lucide-react';
 
 interface OpportunityCardProps {

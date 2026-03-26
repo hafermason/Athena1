@@ -1,4 +1,4 @@
-import { Property } from '../types';
+import type { Property } from '../types';
 import { Building2, Home, Building, MapPin, DollarSign } from 'lucide-react';
 
 interface PropertyCardProps {
