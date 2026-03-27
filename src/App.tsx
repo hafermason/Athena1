@@ -6,6 +6,8 @@ import Transactions from './pages/Transactions';
 import Properties from './pages/Properties';
 import Opportunities from './pages/Opportunities';
 import Settings from './pages/Settings';
+import CreditCards from './pages/CreditCards';
+import Budget from './pages/Budget';
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="accounts" element={<Accounts />} />
           <Route path="transactions" element={<Transactions />} />
+          <Route path="budget" element={<Budget />} />
           <Route path="properties" element={<Properties />} />
           <Route path="opportunities" element={<Opportunities />} />
+          <Route path="credit-cards" element={<CreditCards />} />
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
