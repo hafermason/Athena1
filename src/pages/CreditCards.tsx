@@ -13,9 +13,8 @@ import {
   Info,
   Check,
   Sparkles,
-  Filter,
 } from 'lucide-react';
-import { mockRecommendations, mockCreditProfile, creditCards } from '../data/creditCards';
+import { mockRecommendations, mockCreditProfile } from '../data/creditCards';
 import type { CardRecommendation, CreditCard as CreditCardType } from '../types';
 
 // ============================================

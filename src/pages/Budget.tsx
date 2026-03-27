@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import {
   DollarSign,
   TrendingUp,
-  TrendingDown,
   PiggyBank,
   Target,
   AlertCircle,
-  ChevronRight,
   Plus,
   Edit3,
   CheckCircle,
@@ -55,8 +52,7 @@ import {
   getRemainingBudget,
   getSavingsRate,
 } from '../data/budgetData';
-import type { BudgetCategory, SavingsGoal, BudgetAlert } from '../types';
-
+import type { BudgetCategory, SavingsGoal } from '../types';
 // ============================================
 // ICON MAP
 // ============================================
@@ -174,9 +170,8 @@ function CategoryCard({ category, onClick }: CategoryCardProps) {
   return (
     <div
       onClick={onClick}
-      className={`bg-white rounded-xl border border-surface-200 p-4 hover:shadow-md transition-shadow cursor-pointer ${
-        status === 'danger' ? 'border-red-200' : ''
-      }`}
+      className={`bg-white rounded-xl border border-surface-200 p-4 hover:shadow-md transition-shadow cursor-pointer ${status === 'danger' ? 'border-red-200' : ''
+        }`}
     >
       <div className="flex items-center gap-3 mb-3">
         <div
@@ -500,8 +495,6 @@ function SpendingPieChart() {
 // MAIN PAGE COMPONENT
 // ============================================
 export default function BudgetPage() {
-  const [selectedMonth, setSelectedMonth] = useState('2026-03');
-
   return (
     <div className="space-y-6">
       {/* Page header */}
