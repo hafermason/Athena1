@@ -224,3 +224,92 @@ export interface DashboardStats {
   budgetRemaining: number;
   totalSavingsGoalProgress: number;
 }
+
+// ============ VEHICLES ============
+export interface Vehicle {
+  id: string;
+  year: number;
+  make: string;
+  model: string;
+  vin?: string;
+  licensePlate?: string;
+  state?: string;
+  currentValue: number;
+  loanBalance?: number;
+  loanPayment?: number;
+  imageUrl?: string;
+}
+
+// ============ INSURANCE ============
+export interface InsurancePolicy {
+  id: string;
+  type: 'auto' | 'home' | 'umbrella' | 'life' | 'health' | 'renters' | 'business' | 'other';
+  carrier: string;
+  policyNumber: string;
+  coverageLimit: number;
+  deductible: number;
+  premiumAmount: number;
+  premiumFrequency: 'monthly' | 'quarterly' | 'semi-annual' | 'annual';
+  effectiveDate: string;
+  expirationDate: string;
+  namedInsured: string;
+  propertyId?: string;
+  vehicleId?: string;
+  agentName?: string;
+  agentPhone?: string;
+  status: 'active' | 'expiring' | 'expired';
+}
+
+// ============ DOCUMENTS ============
+export interface Document {
+  id: string;
+  type: 'trust' | 'will' | 'insurance' | 'tax_return' | 'deed' | 'other';
+  title: string;
+  fileName: string;
+  uploadedAt: string;
+  status: 'pending' | 'processing' | 'completed' | 'failed';
+  extractedData?: Record<string, unknown>;
+}
+
+// ============ TRUSTS ============
+export interface Trust {
+  id: string;
+  documentId: string;
+  name: string;
+  type: 'revocable' | 'irrevocable';
+  grantorName: string;
+  executionDate: string;
+  state: string;
+  trustees: { name: string; role: 'primary' | 'successor' }[];
+  beneficiaries: { name: string; relationship: string; distribution: string }[];
+  summary?: string;
+}
+
+// ============ CONTACTS ============
+export interface Contact {
+  id: string;
+  type: 'cpa' | 'attorney' | 'insurance_agent' | 'financial_advisor' | 'property_manager' | 'other';
+  name: string;
+  company?: string;
+  email?: string;
+  phone?: string;
+  notes?: string;
+}
+
+// ============ BUSINESS ============
+export interface BusinessIntegration {
+  id: string;
+  platform: 'quickbooks' | 'xero' | 'stripe';
+  businessName: string;
+  lastSync: string;
+  status: 'active' | 'needs_reauth' | 'error';
+}
+
+export interface BusinessSnapshot {
+  cashBalance: number;
+  revenueMonth: number;
+  expensesMonth: number;
+  netIncomeMonth: number;
+  arTotal: number;
+  apTotal: number;
+}

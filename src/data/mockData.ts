@@ -1,4 +1,4 @@
-import type { Account, Transaction, Property, Opportunity, SpendingCategory, UserProfile } from '../types';
+import type { Account, Transaction, Property, Opportunity, SpendingCategory, UserProfile, Vehicle, InsurancePolicy, Document, Trust, Contact, BusinessSnapshot } from '../types';
 
 export const mockUser: UserProfile = {
   name: 'Mason McMillan',
@@ -105,3 +105,72 @@ export const getTransactionsForProperty = (propertyId: string): Transaction[] =>
 export const getTransactionsForAccount = (accountId: string): Transaction[] => {
   return mockTransactions.filter(t => t.accountId === accountId);
 };
+
+// ============ VEHICLES ============
+export const mockVehicles: Vehicle[] = [
+  { id: 'v1', year: 2021, make: 'Toyota', model: 'Tacoma', vin: '5TFCZ5AN1MX123456', licensePlate: 'A12 BCD', state: 'UT', currentValue: 38500, loanBalance: 22000, loanPayment: 485 },
+  { id: 'v2', year: 2019, make: 'Honda', model: 'CR-V', licensePlate: 'X98 YZA', state: 'UT', currentValue: 24000 },
+];
+
+// ============ INSURANCE ============
+export const mockInsurancePolicies: InsurancePolicy[] = [
+  { id: 'ins1', type: 'auto', carrier: 'State Farm', policyNumber: 'SF-12345', coverageLimit: 100000, deductible: 500, premiumAmount: 1890, premiumFrequency: 'annual', effectiveDate: '2025-04-01', expirationDate: '2026-04-01', namedInsured: 'Mason Heidebrecht', vehicleId: 'v1', agentName: 'John Smith', agentPhone: '801-555-1234', status: 'active' },
+  { id: 'ins2', type: 'home', carrier: 'Allstate', policyNumber: 'AL-67890', coverageLimit: 500000, deductible: 1000, premiumAmount: 2400, premiumFrequency: 'annual', effectiveDate: '2025-06-15', expirationDate: '2026-06-15', namedInsured: 'Mason Heidebrecht', propertyId: 'p1', status: 'active' },
+  { id: 'ins3', type: 'umbrella', carrier: 'GEICO', policyNumber: 'GE-11111', coverageLimit: 1000000, deductible: 0, premiumAmount: 300, premiumFrequency: 'annual', effectiveDate: '2025-03-01', expirationDate: '2026-03-01', namedInsured: 'Mason Heidebrecht', status: 'expiring' },
+  { id: 'ins4', type: 'renters', carrier: 'Lemonade', policyNumber: 'LM-22222', coverageLimit: 50000, deductible: 250, premiumAmount: 15, premiumFrequency: 'monthly', effectiveDate: '2025-01-01', expirationDate: '2026-01-01', namedInsured: 'Mason Heidebrecht', propertyId: 'p2', status: 'active' },
+];
+
+// ============ DOCUMENTS ============
+export const mockDocuments: Document[] = [
+  { id: 'doc1', type: 'trust', title: 'Heidebrecht Family Trust', fileName: 'family_trust_2024.pdf', uploadedAt: '2026-02-15', status: 'completed' },
+  { id: 'doc2', type: 'tax_return', title: '2025 Tax Return', fileName: '2025_1040.pdf', uploadedAt: '2026-03-10', status: 'completed' },
+  { id: 'doc3', type: 'insurance', title: 'State Farm Auto Policy', fileName: 'statefarm_auto.pdf', uploadedAt: '2026-03-20', status: 'processing' },
+];
+
+// ============ TRUSTS ============
+export const mockTrusts: Trust[] = [
+  { id: 't1', documentId: 'doc1', name: 'Heidebrecht Family Trust', type: 'revocable', grantorName: 'Mason Heidebrecht', executionDate: '2024-08-15', state: 'Utah', trustees: [{ name: 'Mason Heidebrecht', role: 'primary' }, { name: 'Katie Heidebrecht', role: 'successor' }], beneficiaries: [{ name: 'Future Children', relationship: 'Children', distribution: 'Equal shares at age 25' }], summary: 'Revocable living trust for estate planning and probate avoidance.' },
+];
+
+// ============ CONTACTS ============
+export const mockContacts: Contact[] = [
+  { id: 'c1', type: 'cpa', name: 'Sarah Johnson', company: 'Johnson Tax Services', email: 'sarah@johnsontax.com', phone: '801-555-9876' },
+  { id: 'c2', type: 'insurance_agent', name: 'John Smith', company: 'State Farm', email: 'john.smith@statefarm.com', phone: '801-555-1234' },
+  { id: 'c3', type: 'attorney', name: 'Michael Davis', company: 'Davis Law Group', email: 'mdavis@davislaw.com', phone: '801-555-4567', notes: 'Estate planning attorney' },
+];
+
+// ============ BUSINESS ============
+export const mockBusinessSnapshot: BusinessSnapshot = {
+  cashBalance: 47250,
+  revenueMonth: 32400,
+  expensesMonth: 18750,
+  netIncomeMonth: 13650,
+  arTotal: 8400,
+  apTotal: 3200,
+};
+
+// ============ HELPER FUNCTIONS ============
+export const getExpiringPolicies = (days: number = 30) =>
+  mockInsurancePolicies.filter(p => {
+    const exp = new Date(p.expirationDate);
+    const diff = (exp.getTime() - Date.now()) / (1000 * 60 * 60 * 24);
+    return diff > 0 && diff <= days;
+  });
+
+export const getTotalPremiums = () =>
+  mockInsurancePolicies.reduce((sum, p) => {
+    const annual = p.premiumFrequency === 'monthly' ? p.premiumAmount * 12
+      : p.premiumFrequency === 'quarterly' ? p.premiumAmount * 4
+      : p.premiumFrequency === 'semi-annual' ? p.premiumAmount * 2
+      : p.premiumAmount;
+    return sum + annual;
+  }, 0);
+
+export const getInsuranceForVehicle = (vehicleId: string): InsurancePolicy[] => {
+  return mockInsurancePolicies.filter(p => p.vehicleId === vehicleId);
+};
+
+export const getInsuranceForProperty = (propertyId: string): InsurancePolicy[] => {
+  return mockInsurancePolicies.filter(p => p.propertyId === propertyId);
+};
+

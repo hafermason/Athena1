@@ -13,6 +13,7 @@ const typeIcons = {
   insurance: Shield,
   bills: Receipt,
   budget: PiggyBank,
+  credit: Shield,
 };
 
 const typeColors = {
@@ -20,6 +21,7 @@ const typeColors = {
   insurance: 'from-purple-500 to-violet-600',
   bills: 'from-amber-500 to-orange-600',
   budget: 'from-emerald-500 to-teal-600',
+  credit: 'from-cyan-500 to-blue-600',
 };
 
 const typeBadgeColors = {
@@ -27,6 +29,7 @@ const typeBadgeColors = {
   insurance: 'bg-purple-100 text-purple-700',
   bills: 'bg-amber-100 text-amber-700',
   budget: 'bg-emerald-100 text-emerald-700',
+  credit: 'bg-cyan-100 text-cyan-700',
 };
 
 export default function OpportunityCard({ opportunity, onDismiss, onComplete, compact }: OpportunityCardProps) {

@@ -11,18 +11,21 @@ const typeIcons = {
   primary: Home,
   rental: Building2,
   commercial: Building,
+  vacation: Home,
 };
 
 const typeLabels = {
   primary: 'Primary',
   rental: 'Rental',
   commercial: 'Commercial',
+  vacation: 'Vacation',
 };
 
 const typeColors = {
   primary: 'bg-blue-100 text-blue-600',
   rental: 'bg-green-100 text-green-600',
   commercial: 'bg-purple-100 text-purple-600',
+  vacation: 'bg-amber-100 text-amber-600',
 };
 
 export default function PropertyCard({ property, onClick, compact }: PropertyCardProps) {

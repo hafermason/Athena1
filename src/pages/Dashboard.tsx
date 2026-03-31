@@ -1,4 +1,4 @@
-import { Wallet, TrendingUp, ArrowDownUp, PiggyBank, ArrowRight } from 'lucide-react';
+import { Wallet, TrendingUp, ArrowDownUp, PiggyBank, ArrowRight, AlertTriangle, Car } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { Link } from 'react-router-dom';
 import StatCard from '../components/StatCard';
@@ -6,7 +6,6 @@ import TransactionRow from '../components/TransactionRow';
 import PropertyCard from '../components/PropertyCard';
 import OpportunityCard from '../components/OpportunityCard';
 import {
-  getNetWorth,
   mockMonthlyIncome,
   mockMonthlyExpenses,
   mockSavingsRate,
@@ -15,6 +14,8 @@ import {
   mockTransactions,
   mockProperties,
   mockOpportunities,
+  mockVehicles,
+  getExpiringPolicies,
 } from '../data/mockData';
 
 const formatCurrency = (n: number) =>
@@ -29,9 +30,14 @@ const dailySpending = [
 ];
 
 export default function Dashboard() {
-  const netWorth = getNetWorth();
+  // Updated net worth: accounts + vehicle values - vehicle loan balances
+  const accountNetWorth = mockAccounts.reduce((sum, acc) => sum + acc.balance, 0);
+  const vehicleEquity = mockVehicles.reduce((sum, v) => sum + v.currentValue - (v.loanBalance || 0), 0);
+  const netWorth = accountNetWorth + vehicleEquity;
+
   const recentTransactions = mockTransactions.slice(0, 6);
   const topOpportunities = mockOpportunities.slice(0, 3);
+  const expiringPolicies = getExpiringPolicies(60);
 
   return (
     <div className="space-y-6">
@@ -72,6 +78,27 @@ export default function Dashboard() {
           trend={{ value: '+5.3% vs last month', positive: true }}
         />
       </div>
+
+      {/* Insurance expiring alert */}
+      {expiringPolicies.length > 0 && (
+        <Link to="/insurance" className="block">
+          <div className="rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 p-5 text-white relative overflow-hidden hover:shadow-lg transition-shadow">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-12 translate-x-12" />
+            <div className="relative flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                <AlertTriangle className="w-5 h-5" />
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold">{expiringPolicies.length} insurance {expiringPolicies.length === 1 ? 'policy' : 'policies'} expiring soon</p>
+                <p className="text-sm text-white/80 mt-0.5">
+                  {expiringPolicies.map(p => `${p.carrier} ${p.type}`).join(', ')} — Tap to review
+                </p>
+              </div>
+              <ArrowRight className="w-5 h-5 text-white/60" />
+            </div>
+          </div>
+        </Link>
+      )}
 
       {/* Charts row */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
@@ -136,7 +163,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Bottom section: accounts, properties, opportunities */}
+      {/* Bottom section: accounts, transactions, opportunities */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Account balances */}
         <div className="rounded-2xl bg-white border border-surface-200 p-6">
@@ -192,18 +219,52 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Properties row */}
-      <div>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="font-semibold text-surface-900 text-lg">Properties</h2>
-          <Link to="/properties" className="text-sm text-athena-600 hover:text-athena-700 font-medium flex items-center gap-1">
-            Manage <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+      {/* Properties & Vehicles row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Properties */}
+        <div>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="font-semibold text-surface-900 text-lg">Properties</h2>
+            <Link to="/properties" className="text-sm text-athena-600 hover:text-athena-700 font-medium flex items-center gap-1">
+              Manage <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          <div className="space-y-3">
+            {mockProperties.map((p) => (
+              <PropertyCard key={p.id} property={p} compact />
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {mockProperties.map((p) => (
-            <PropertyCard key={p.id} property={p} compact />
-          ))}
+
+        {/* Vehicles */}
+        <div>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="font-semibold text-surface-900 text-lg">Vehicles</h2>
+            <Link to="/vehicles" className="text-sm text-athena-600 hover:text-athena-700 font-medium flex items-center gap-1">
+              Manage <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          <div className="space-y-3">
+            {mockVehicles.map((v) => (
+              <div key={v.id} className="flex items-center gap-4 p-4 rounded-xl bg-white border border-surface-200 hover:shadow-md hover:shadow-surface-200/50 transition-all duration-200">
+                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                  <Car className="w-5 h-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-semibold text-surface-800">{v.year} {v.make} {v.model}</p>
+                  <p className="text-xs text-surface-400">{v.licensePlate} · {v.state}</p>
+                </div>
+                <div className="text-right shrink-0">
+                  <p className="text-sm font-semibold text-surface-800">{formatCurrency(v.currentValue)}</p>
+                  {v.loanBalance ? (
+                    <p className="text-xs text-surface-400">Loan: {formatCurrency(v.loanBalance)}</p>
+                  ) : (
+                    <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Paid off</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
