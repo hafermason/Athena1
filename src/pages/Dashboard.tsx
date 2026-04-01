@@ -122,7 +122,7 @@ export default function Dashboard() {
                 contentStyle={{ backgroundColor: '#fff', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '13px' }}
                 formatter={(value: any) => [`$${value}`, 'Spent']}
               />
-              <Bar dataKey="amount" fill="#6366f1" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="amount" fill="#166534" radius={[6, 6, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -247,7 +247,7 @@ export default function Dashboard() {
           <div className="space-y-3">
             {mockVehicles.map((v) => (
               <div key={v.id} className="flex items-center gap-4 p-4 rounded-xl bg-white border border-surface-200 hover:shadow-md hover:shadow-surface-200/50 transition-all duration-200">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-green-100 text-green-700 flex items-center justify-center shrink-0">
                   <Car className="w-5 h-5" />
                 </div>
                 <div className="min-w-0 flex-1">

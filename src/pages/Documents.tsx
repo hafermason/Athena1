@@ -15,17 +15,17 @@ const typeIcons: Record<string, React.ElementType> = {
 };
 
 const typeColors: Record<string, string> = {
-  trust: 'bg-purple-100 text-purple-600',
-  will: 'bg-indigo-100 text-indigo-600',
-  insurance: 'bg-emerald-100 text-emerald-600',
-  tax_return: 'bg-blue-100 text-blue-600',
-  deed: 'bg-amber-100 text-amber-600',
-  other: 'bg-surface-100 text-surface-600',
+  trust: 'bg-green-100 text-green-700',
+  will: 'bg-emerald-100 text-emerald-700',
+  insurance: 'bg-green-50 text-green-600',
+  tax_return: 'bg-stone-100 text-stone-700',
+  deed: 'bg-emerald-50 text-emerald-600',
+  other: 'bg-stone-100 text-stone-600',
 };
 
 const statusConfig: Record<string, { color: string; icon: React.ElementType; label: string }> = {
   pending: { color: 'bg-amber-100 text-amber-700', icon: File, label: 'Pending' },
-  processing: { color: 'bg-blue-100 text-blue-700', icon: Loader2, label: 'Processing' },
+  processing: { color: 'bg-stone-100 text-stone-700', icon: Loader2, label: 'Processing' },
   completed: { color: 'bg-emerald-100 text-emerald-700', icon: CheckCircle, label: 'Completed' },
   failed: { color: 'bg-red-100 text-red-700', icon: XCircle, label: 'Failed' },
 };

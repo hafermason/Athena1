@@ -128,7 +128,7 @@ function BudgetOverviewCards() {
       </div>
 
       {/* Savings Rate */}
-      <div className="bg-gradient-to-br from-athena-600 to-purple-600 rounded-2xl p-5 text-white">
+      <div className="bg-gradient-to-br from-green-700 to-green-900 rounded-2xl p-5 text-white">
         <div className="flex items-center justify-between mb-3">
           <span className="text-white/80 text-sm font-medium">Savings Rate</span>
           <div className="p-2 bg-white/20 rounded-xl">
@@ -291,14 +291,14 @@ function BudgetAlertsList() {
     overspent: <AlertCircle className="w-4 h-4 text-red-600" />,
     approaching_limit: <AlertTriangle className="w-4 h-4 text-amber-600" />,
     goal_reached: <CheckCircle className="w-4 h-4 text-emerald-600" />,
-    income_received: <ArrowUpRight className="w-4 h-4 text-blue-600" />,
+    income_received: <ArrowUpRight className="w-4 h-4 text-green-700" />,
   };
 
   const alertBg: Record<string, string> = {
     overspent: 'bg-red-50 border-red-100',
     approaching_limit: 'bg-amber-50 border-amber-100',
     goal_reached: 'bg-emerald-50 border-emerald-100',
-    income_received: 'bg-blue-50 border-blue-100',
+    income_received: 'bg-green-50 border-green-100',
   };
 
   return (

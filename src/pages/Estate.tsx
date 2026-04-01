@@ -23,8 +23,8 @@ export default function Estate() {
         <div className="rounded-2xl bg-white border border-surface-200 p-6">
           <div className="flex items-center justify-between mb-3">
             <span className="text-surface-500 text-sm font-medium">Trusts</span>
-            <div className="p-2 bg-purple-100 rounded-xl">
-              <Scroll className="w-4 h-4 text-purple-600" />
+            <div className="p-2 bg-green-100 rounded-xl">
+              <Scroll className="w-4 h-4 text-green-700" />
             </div>
           </div>
           <p className="text-2xl font-bold text-surface-900">{mockTrusts.length}</p>
@@ -34,8 +34,8 @@ export default function Estate() {
         <div className="rounded-2xl bg-white border border-surface-200 p-6">
           <div className="flex items-center justify-between mb-3">
             <span className="text-surface-500 text-sm font-medium">Key Parties</span>
-            <div className="p-2 bg-blue-100 rounded-xl">
-              <Users className="w-4 h-4 text-blue-600" />
+            <div className="p-2 bg-stone-100 rounded-xl">
+              <Users className="w-4 h-4 text-stone-600" />
             </div>
           </div>
           <p className="text-2xl font-bold text-surface-900">{allParties}</p>
@@ -60,7 +60,7 @@ export default function Estate() {
           {/* Trusts section */}
           <div className="rounded-2xl bg-white border border-surface-200 overflow-hidden">
             <div className="px-6 py-4 border-b border-surface-100 bg-surface-50/50 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-green-100 text-green-700 flex items-center justify-center">
                 <Scroll className="w-4 h-4" />
               </div>
               <h2 className="font-semibold text-surface-800">Trusts</h2>
@@ -121,7 +121,7 @@ export default function Estate() {
                                 </div>
                                 <span className="text-surface-800">{trustee.name}</span>
                                 <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                                  trustee.role === 'primary' ? 'bg-athena-100 text-athena-700' : 'bg-surface-100 text-surface-500'
+                                  trustee.role === 'primary' ? 'bg-green-100 text-green-700' : 'bg-surface-100 text-surface-500'
                                 }`}>
                                   {trustee.role}
                                 </span>
@@ -147,10 +147,10 @@ export default function Estate() {
                         {trust.summary && (
                           <div className="p-4 bg-athena-50 rounded-xl border border-athena-100">
                             <div className="flex items-center gap-2 mb-2">
-                              <Shield className="w-4 h-4 text-athena-600" />
-                              <p className="text-xs font-semibold text-athena-700">AI Summary</p>
+                              <Shield className="w-4 h-4 text-green-700" />
+                              <p className="text-xs font-semibold text-green-800">AI Summary</p>
                             </div>
-                            <p className="text-sm text-athena-800">{trust.summary}</p>
+                            <p className="text-sm text-green-900">{trust.summary}</p>
                           </div>
                         )}
 
@@ -172,7 +172,7 @@ export default function Estate() {
           {/* Wills section */}
           <div className="rounded-2xl bg-white border border-surface-200 p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center">
                 <FileText className="w-4 h-4" />
               </div>
               <h2 className="font-semibold text-surface-800">Wills</h2>
@@ -196,7 +196,7 @@ export default function Estate() {
           {/* Key Contacts */}
           <div className="rounded-2xl bg-white border border-surface-200 p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center">
                 <Users className="w-4 h-4" />
               </div>
               <h2 className="font-semibold text-surface-800">Key Contacts</h2>
@@ -204,7 +204,7 @@ export default function Estate() {
             <div className="space-y-3">
               {attorneys.map((contact) => (
                 <div key={contact.id} className="flex items-center gap-3 p-3 rounded-xl bg-surface-50 border border-surface-100">
-                  <div className="w-9 h-9 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm font-semibold">
+                  <div className="w-9 h-9 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm font-semibold">
                     {contact.name[0]}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -247,8 +247,8 @@ export default function Estate() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-3 rounded-xl border bg-blue-50 border-blue-100">
-                <Shield className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+              <div className="flex items-start gap-3 p-3 rounded-xl border bg-green-50 border-green-100">
+                <Shield className="w-4 h-4 text-green-700 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-sm text-surface-800">Consider adding beneficiary designations</p>
                   <p className="text-xs text-surface-500 mt-0.5">
@@ -256,8 +256,8 @@ export default function Estate() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-3 rounded-xl border bg-purple-50 border-purple-100">
-                <FileText className="w-4 h-4 text-purple-600 mt-0.5 shrink-0" />
+              <div className="flex items-start gap-3 p-3 rounded-xl border bg-stone-50 border-stone-200">
+                <FileText className="w-4 h-4 text-stone-600 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-sm text-surface-800">Upload your will</p>
                   <p className="text-xs text-surface-500 mt-0.5">

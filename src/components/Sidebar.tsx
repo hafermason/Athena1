@@ -85,7 +85,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
       {/* Logo */}
       <div className="h-16 flex items-center justify-between px-4 border-b border-surface-100">
         <div className="flex items-center gap-2 overflow-hidden">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-athena-600 to-purple-600 flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-green-700 to-green-900 flex items-center justify-center shrink-0">
             <span className="text-white font-bold text-lg">A</span>
           </div>
           {!collapsed && <span className="text-xl font-bold text-surface-900">Athena</span>}
@@ -131,7 +131,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
       {/* User profile */}
       <div className="p-3 border-t border-surface-100">
         <div className={`flex items-center gap-3 p-2 rounded-xl hover:bg-surface-50 transition-colors cursor-pointer ${collapsed ? 'justify-center' : ''}`}>
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-athena-500 to-purple-500 flex items-center justify-center text-white font-semibold text-sm shrink-0">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white font-semibold text-sm shrink-0">
             M
           </div>
           {!collapsed && (

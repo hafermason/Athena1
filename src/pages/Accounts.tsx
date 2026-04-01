@@ -18,12 +18,12 @@ const typeLabels: Record<string, string> = {
 };
 
 const typeColors: Record<string, string> = {
-  checking: 'bg-blue-100 text-blue-600',
+  checking: 'bg-green-100 text-green-700',
   savings: 'bg-green-100 text-green-600',
   credit: 'bg-orange-100 text-orange-600',
-  investment: 'bg-purple-100 text-purple-600',
+  investment: 'bg-stone-100 text-stone-600',
   loan: 'bg-red-100 text-red-600',
-  mortgage: 'bg-rose-100 text-rose-600',
+  mortgage: 'bg-stone-200 text-stone-700',
 };
 
 export default function Accounts() {

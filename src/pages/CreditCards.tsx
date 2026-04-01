@@ -76,15 +76,15 @@ function RecommendationCard({ recommendation, rank, onApply }: RecommendationCar
 
   const getScoreColor = (score: number) => {
     if (score >= 80) return 'text-emerald-600 bg-emerald-50';
-    if (score >= 60) return 'text-blue-600 bg-blue-50';
+    if (score >= 60) return 'text-green-600 bg-green-50';
     return 'text-amber-600 bg-amber-50';
   };
 
   const getNetworkLogo = (network: string) => {
     const colors: Record<string, string> = {
-      visa: 'bg-blue-600',
+      visa: 'bg-green-800',
       mastercard: 'bg-gradient-to-r from-red-500 to-yellow-500',
-      amex: 'bg-blue-500',
+      amex: 'bg-stone-600',
       discover: 'bg-orange-500',
     };
     return colors[network] || 'bg-gray-500';
@@ -94,7 +94,7 @@ function RecommendationCard({ recommendation, rank, onApply }: RecommendationCar
     <div className="bg-white rounded-2xl border border-surface-200 overflow-hidden hover:shadow-lg transition-shadow">
       {/* Top badge for #1 recommendation */}
       {rank === 1 && (
-        <div className="bg-gradient-to-r from-athena-600 to-purple-600 text-white px-4 py-2 flex items-center gap-2">
+        <div className="bg-gradient-to-r from-green-700 to-green-900 text-white px-4 py-2 flex items-center gap-2">
           <Sparkles className="w-4 h-4" />
           <span className="text-sm font-semibold">Best Match for You</span>
         </div>
@@ -182,15 +182,15 @@ function RecommendationCard({ recommendation, rank, onApply }: RecommendationCar
 
             {/* Sign-up bonus */}
             {card.signUpBonus && (
-              <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-xl">
-                <Gift className="w-5 h-5 text-purple-600 shrink-0" />
+              <div className="flex items-start gap-3 p-3 bg-green-50 rounded-xl">
+                <Gift className="w-5 h-5 text-green-700 shrink-0" />
                 <div>
-                  <p className="text-sm font-medium text-purple-800">
+                  <p className="text-sm font-medium text-green-800">
                     Sign-up Bonus: {card.rewardType === 'points' || card.rewardType === 'miles'
                       ? `${card.signUpBonus.amount.toLocaleString()} ${card.rewardType}`
                       : `$${card.signUpBonus.amount}`}
                   </p>
-                  <p className="text-xs text-purple-600 mt-0.5">
+                  <p className="text-xs text-green-700 mt-0.5">
                     Spend ${card.signUpBonus.spendRequired.toLocaleString()} in{' '}
                     {card.signUpBonus.timeframeDays} days
                   </p>
@@ -295,9 +295,9 @@ function SpendingProfileCard() {
 function CreditScoreCard() {
   const scoreColors: Record<string, { bg: string; text: string; label: string }> = {
     excellent: { bg: 'bg-emerald-100', text: 'text-emerald-700', label: 'Excellent' },
-    good: { bg: 'bg-blue-100', text: 'text-blue-700', label: 'Good' },
+    good: { bg: 'bg-green-100', text: 'text-green-700', label: 'Good' },
     fair: { bg: 'bg-amber-100', text: 'text-amber-700', label: 'Fair' },
-    building: { bg: 'bg-purple-100', text: 'text-purple-700', label: 'Building' },
+    building: { bg: 'bg-stone-100', text: 'text-stone-700', label: 'Building' },
   };
 
   const colors = scoreColors[mockCreditProfile.creditScoreRange];
@@ -455,7 +455,7 @@ export default function CreditCards() {
           <CreditScoreCard />
 
           {/* Quick stats */}
-          <div className="bg-gradient-to-br from-athena-600 to-purple-600 rounded-2xl p-6 text-white">
+          <div className="bg-gradient-to-br from-green-700 to-green-900 rounded-2xl p-6 text-white">
             <h3 className="font-semibold mb-4">Potential Rewards</h3>
             <div className="space-y-3">
               <div className="flex items-center justify-between">

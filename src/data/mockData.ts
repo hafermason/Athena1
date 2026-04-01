@@ -67,18 +67,18 @@ export const mockOpportunities: Opportunity[] = [
 ];
 
 export const mockSpendingByCategory: SpendingCategory[] = [
-  { name: 'Housing', amount: 1992.00, color: '#6366f1' },
-  { name: 'Groceries', amount: 302.75, color: '#22c55e' },
-  { name: 'Utilities', amount: 472.09, color: '#f59e0b' },
-  { name: 'Food & Drink', amount: 51.80, color: '#ef4444' },
-  { name: 'Shopping', amount: 111.10, color: '#ec4899' },
-  { name: 'Insurance', amount: 189.00, color: '#8b5cf6' },
-  { name: 'Auto & Transport', amount: 52.10, color: '#06b6d4' },
-  { name: 'Entertainment', amount: 15.99, color: '#f97316' },
-  { name: 'Subscriptions', amount: 34.95, color: '#84cc16' },
-  { name: 'Health & Fitness', amount: 24.99, color: '#14b8a6' },
-  { name: 'Home', amount: 413.37, color: '#a855f7' },
-  { name: 'Taxes', amount: 425.00, color: '#64748b' },
+  { name: 'Housing', amount: 1992.00, color: '#14532d' },
+  { name: 'Groceries', amount: 302.75, color: '#166534' },
+  { name: 'Utilities', amount: 472.09, color: '#15803d' },
+  { name: 'Food & Drink', amount: 51.80, color: '#22c55e' },
+  { name: 'Shopping', amount: 111.10, color: '#4ade80' },
+  { name: 'Insurance', amount: 189.00, color: '#86efac' },
+  { name: 'Auto & Transport', amount: 52.10, color: '#bbf7d0' },
+  { name: 'Entertainment', amount: 15.99, color: '#57534e' },
+  { name: 'Subscriptions', amount: 34.95, color: '#78716c' },
+  { name: 'Health & Fitness', amount: 24.99, color: '#a8a29e' },
+  { name: 'Home', amount: 413.37, color: '#0f291e' },
+  { name: 'Taxes', amount: 425.00, color: '#44403c' },
 ];
 
 export const mockMonthlyIncome = 10350.00;

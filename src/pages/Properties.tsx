@@ -40,10 +40,10 @@ export default function Properties() {
         <div className="rounded-2xl bg-white border border-surface-200 overflow-hidden">
           <div className={`h-36 relative ${
             selectedProperty.type === 'primary'
-              ? 'bg-gradient-to-br from-blue-500 to-indigo-600'
+              ? 'bg-gradient-to-br from-green-700 to-green-900'
               : selectedProperty.type === 'rental'
-              ? 'bg-gradient-to-br from-emerald-500 to-teal-600'
-              : 'bg-gradient-to-br from-purple-500 to-violet-600'
+              ? 'bg-gradient-to-br from-emerald-600 to-green-800'
+              : 'bg-gradient-to-br from-stone-500 to-stone-700'
           }`}>
             <div className="absolute bottom-4 left-6">
               <h1 className="text-2xl font-bold text-white">{selectedProperty.nickname}</h1>

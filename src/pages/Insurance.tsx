@@ -17,14 +17,14 @@ const typeIcons: Record<string, React.ElementType> = {
 };
 
 const typeColors: Record<string, string> = {
-  auto: 'from-blue-500 to-indigo-600',
-  home: 'from-emerald-500 to-teal-600',
-  umbrella: 'from-purple-500 to-violet-600',
-  life: 'from-rose-500 to-pink-600',
-  health: 'from-red-500 to-rose-600',
-  renters: 'from-amber-500 to-orange-600',
-  business: 'from-slate-500 to-gray-600',
-  other: 'from-gray-500 to-slate-600',
+  auto: 'from-green-600 to-green-800',
+  home: 'from-emerald-600 to-green-800',
+  umbrella: 'from-green-700 to-green-900',
+  life: 'from-emerald-700 to-emerald-900',
+  health: 'from-green-500 to-emerald-700',
+  renters: 'from-stone-500 to-stone-700',
+  business: 'from-stone-600 to-stone-800',
+  other: 'from-stone-500 to-stone-700',
 };
 
 const statusColors: Record<string, string> = {
@@ -129,7 +129,7 @@ export default function Insurance() {
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-athena-50 to-purple-50 border border-athena-100">
+          <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-athena-50 to-green-50 border border-athena-100">
             <div className="w-10 h-10 rounded-xl bg-athena-100 flex items-center justify-center">
               <DollarSign className="w-5 h-5 text-athena-600" />
             </div>

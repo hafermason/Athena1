@@ -22,10 +22,10 @@ const typeLabels = {
 };
 
 const typeColors = {
-  primary: 'bg-blue-100 text-blue-600',
-  rental: 'bg-green-100 text-green-600',
-  commercial: 'bg-purple-100 text-purple-600',
-  vacation: 'bg-amber-100 text-amber-600',
+  primary: 'bg-green-100 text-green-700',
+  rental: 'bg-emerald-100 text-emerald-700',
+  commercial: 'bg-stone-100 text-stone-600',
+  vacation: 'bg-green-50 text-green-600',
 };
 
 export default function PropertyCard({ property, onClick, compact }: PropertyCardProps) {
@@ -60,10 +60,12 @@ export default function PropertyCard({ property, onClick, compact }: PropertyCar
       {/* Gradient header */}
       <div className={`h-28 relative overflow-hidden ${
         property.type === 'primary'
-          ? 'bg-gradient-to-br from-blue-500 to-indigo-600'
+          ? 'bg-gradient-to-br from-green-700 to-green-900'
           : property.type === 'rental'
-          ? 'bg-gradient-to-br from-emerald-500 to-teal-600'
-          : 'bg-gradient-to-br from-purple-500 to-violet-600'
+          ? 'bg-gradient-to-br from-emerald-600 to-green-800'
+          : property.type === 'vacation'
+          ? 'bg-gradient-to-br from-green-500 to-emerald-700'
+          : 'bg-gradient-to-br from-stone-500 to-stone-700'
       }`}>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0djJoLTJ2LTJoMnptMCA2djJoLTJ2LTJoMnptLTYtNnYyaC0ydi0yaDJ6bTAgNnYyaC0ydi0yaDJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-50" />
         <div className="absolute bottom-3 left-4">

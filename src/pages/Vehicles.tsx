@@ -4,11 +4,11 @@ import { mockVehicles, getInsuranceForVehicle } from '../data/mockData';
 import type { Vehicle } from '../types';
 
 const makeColors: Record<string, string> = {
-  Toyota: 'from-blue-500 to-indigo-600',
-  Honda: 'from-slate-500 to-gray-600',
-  Ford: 'from-blue-600 to-blue-800',
-  Chevrolet: 'from-yellow-500 to-amber-600',
-  Tesla: 'from-red-500 to-rose-600',
+  Toyota: 'from-green-600 to-green-800',
+  Honda: 'from-stone-500 to-stone-700',
+  Ford: 'from-green-700 to-green-900',
+  Chevrolet: 'from-emerald-600 to-green-800',
+  Tesla: 'from-green-500 to-emerald-700',
 };
 
 const formatCurrency = (n: number) =>

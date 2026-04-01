@@ -7,19 +7,19 @@ interface TransactionRowProps {
 }
 
 const categoryColors: Record<string, string> = {
-  'Groceries': 'bg-green-100 text-green-700',
-  'Auto & Transport': 'bg-cyan-100 text-cyan-700',
-  'Entertainment': 'bg-orange-100 text-orange-700',
-  'Income': 'bg-emerald-100 text-emerald-700',
-  'Home': 'bg-violet-100 text-violet-700',
-  'Insurance': 'bg-purple-100 text-purple-700',
-  'Utilities': 'bg-amber-100 text-amber-700',
-  'Shopping': 'bg-pink-100 text-pink-700',
-  'Food & Drink': 'bg-red-100 text-red-700',
-  'Subscriptions': 'bg-lime-100 text-lime-700',
-  'Health & Fitness': 'bg-teal-100 text-teal-700',
-  'Taxes': 'bg-slate-100 text-slate-700',
-  'Housing': 'bg-indigo-100 text-indigo-700',
+  'Groceries': 'bg-green-100 text-green-800',
+  'Auto & Transport': 'bg-green-50 text-green-700',
+  'Entertainment': 'bg-stone-100 text-stone-700',
+  'Income': 'bg-emerald-100 text-emerald-800',
+  'Home': 'bg-green-100 text-green-800',
+  'Insurance': 'bg-stone-100 text-stone-600',
+  'Utilities': 'bg-green-50 text-green-700',
+  'Shopping': 'bg-stone-100 text-stone-700',
+  'Food & Drink': 'bg-green-100 text-green-700',
+  'Subscriptions': 'bg-stone-50 text-stone-600',
+  'Health & Fitness': 'bg-emerald-50 text-emerald-700',
+  'Taxes': 'bg-stone-200 text-stone-700',
+  'Housing': 'bg-green-100 text-green-800',
 };
 
 export function CategoryBadge({ category }: { category: string }) {

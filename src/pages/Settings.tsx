@@ -133,7 +133,7 @@ export default function Settings() {
       {/* Data Export */}
       <div className="rounded-2xl bg-white border border-surface-200 overflow-hidden">
         <div className="px-6 py-4 border-b border-surface-100 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-green-100 text-green-700 flex items-center justify-center">
             <Download className="w-4 h-4" />
           </div>
           <h2 className="font-semibold text-surface-800">Data Export</h2>

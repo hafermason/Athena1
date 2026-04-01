@@ -17,19 +17,19 @@ const typeIcons = {
 };
 
 const typeColors = {
-  tax: 'from-blue-500 to-indigo-600',
-  insurance: 'from-purple-500 to-violet-600',
-  bills: 'from-amber-500 to-orange-600',
-  budget: 'from-emerald-500 to-teal-600',
-  credit: 'from-cyan-500 to-blue-600',
+  tax: 'from-green-700 to-green-900',
+  insurance: 'from-green-600 to-emerald-800',
+  bills: 'from-stone-500 to-stone-700',
+  budget: 'from-emerald-600 to-green-800',
+  credit: 'from-green-500 to-green-700',
 };
 
 const typeBadgeColors = {
-  tax: 'bg-blue-100 text-blue-700',
-  insurance: 'bg-purple-100 text-purple-700',
-  bills: 'bg-amber-100 text-amber-700',
-  budget: 'bg-emerald-100 text-emerald-700',
-  credit: 'bg-cyan-100 text-cyan-700',
+  tax: 'bg-green-100 text-green-800',
+  insurance: 'bg-emerald-100 text-emerald-800',
+  bills: 'bg-stone-100 text-stone-700',
+  budget: 'bg-green-50 text-green-700',
+  credit: 'bg-emerald-50 text-emerald-700',
 };
 
 export default function OpportunityCard({ opportunity, onDismiss, onComplete, compact }: OpportunityCardProps) {

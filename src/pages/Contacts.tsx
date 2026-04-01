@@ -24,11 +24,11 @@ const typeSections: { label: string; types: ContactType[] }[] = [
 ];
 
 const typeColors: Record<ContactType, string> = {
-  cpa: 'bg-green-100 text-green-600',
-  attorney: 'bg-indigo-100 text-indigo-600',
-  insurance_agent: 'bg-blue-100 text-blue-600',
-  financial_advisor: 'bg-purple-100 text-purple-600',
-  property_manager: 'bg-amber-100 text-amber-600',
+  cpa: 'bg-green-100 text-green-700',
+  attorney: 'bg-emerald-100 text-emerald-700',
+  insurance_agent: 'bg-green-50 text-green-600',
+  financial_advisor: 'bg-stone-100 text-stone-600',
+  property_manager: 'bg-stone-100 text-stone-700',
   other: 'bg-surface-100 text-surface-600',
 };
 
